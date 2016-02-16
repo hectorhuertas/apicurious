@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  def login
-
+  def create
+    # binding.pry
+    redirect_to dashboard_path
   end
 end
