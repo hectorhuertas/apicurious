@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
     user.name = auth['info']['name']
     user.email = auth['info']['email']
     user.image_url = auth['info']['image']
-    user.token = auth['info']['token']
+    # binding.pry
+    user.token = auth['credentials']['token']
     # user.image_url = auth['info']['image_url']
     user.save
     user

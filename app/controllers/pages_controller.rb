@@ -4,4 +4,8 @@ class PagesController < ApplicationController
 
   def dashboard
   end
+
+  def supertest
+    pry
+  end
 end
