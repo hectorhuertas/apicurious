@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'capybara'
+gem 'mocha'
+gem 'factory_girl_rails'
 gem 'pry'
-gem 'pry-byebug'
+# gem 'pry-byebug'
 gem 'omniauth-github'
 gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
 
   get "/dashboard", to: "pages#dashboard"
+  get "/supertest", to: "pages#supertest"
 end
