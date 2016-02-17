@@ -21,3 +21,28 @@ class ActionDispatch::IntegrationTest
     reset_session!
   end
 end
+
+DatabaseCleaner.strategy = :transaction
+
+class Minitest::Spec
+  def setup
+    DatabaseCleaner.start
+  end
+
+  def teardown
+    DatabaseCleaner.clean
+  end
+end
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+  "provider"=>"github",
+  "uid"=>"13817763",
+  "info"=>
+    {"nickname"=>"hectorhuertas",
+     "email"=>nil,
+     "name"=>"Hector Huertas",
+     "image"=>"https://avatars.githubusercontent.com/u/13817763?v=3",
+     "urls"=>{"GitHub"=>"https://github.com/hectorhuertas", "Blog"=>nil}},
+  "credentials"=>{"token"=>ENV['GITHUB_TOKEN'], "expires"=>false}
+  })
