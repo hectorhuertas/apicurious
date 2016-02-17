@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'capybara'
+gem 'mocha'
+gem 'factory_girl_rails'
 gem 'pry'
 # gem 'pry-byebug'
 gem 'omniauth-github'
