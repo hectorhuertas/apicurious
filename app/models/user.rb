@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
     user.save
     user
   end
+
+  def self.authorized?(controller, action)
+
+  end
 end
