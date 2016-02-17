@@ -1,7 +1,21 @@
-<h2>Dashboard</h2>
-<%#= binding.pry %>
-<%= link_to "SuperTest", "/supertest" %>
-<h2>Logged user: <%= current_user.username %> </h2>
-<%= image_tag current_user.image_url %>
-<br>
-<%= link_to "Logout", "/logout" %>
+<div class="container text-xs-center">
+  <div class="row">
+    <div class="col-md-3" style="background-color:grey">
+      <div class="row">
+
+        <h3>Dashboard</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= image_tag current_user.image_url , class:"img-responsive", style:"width:100%"%>
+        </div>
+      </div>
+      <%#= binding.pry %>
+      <h3><%= current_user.username %> </h3>
+      <br>
+      <%= link_to "SuperTest", "/supertest" %>
+      <%= link_to "Logout", "/logout" %>
+
+    </div>
+  </div>
+</div>
