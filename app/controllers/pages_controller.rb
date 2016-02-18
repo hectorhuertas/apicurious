@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     @user = git.user
     @starred = git.starred
     @contributions = git.contributions
-    # binding.pry
+    @commit_history = git.commit_history
   end
 
   def supertest

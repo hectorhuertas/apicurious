@@ -32,4 +32,20 @@ class GithubService
       current: current
     }
   end
+
+  def commit_history
+    events = JSON.parse(conn.get("/users/hectorhuertas/events").body, symbolize_names: true)
+    pushes = []
+    events.each do |event|
+      if event[:type]=="PushEvent"
+        pushes << event
+      end
+    end
+    commits = pushes.map do |push|
+      {
+        total: push[:payload][:commits].size,
+        repo: push[:repo][:name]
+      }
+    end.take(5)
+  end
 end
