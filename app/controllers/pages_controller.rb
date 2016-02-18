@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     @starred = git.starred
     @contributions = git.contributions
     @commit_history = git.commit_history
+    @repos = git.repos
   end
 
   def supertest

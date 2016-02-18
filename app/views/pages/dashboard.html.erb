@@ -53,4 +53,11 @@
       <% end %>
     </div>
   </div>
+  <div class="row">
+    <% @repos.each do |repo| %>
+      <div class="row">
+        <%= link_to repo[:name], repo[:url] %>
+      </div>
+    <% end %>
+  </div>
 </div>

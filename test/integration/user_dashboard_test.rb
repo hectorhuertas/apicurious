@@ -33,7 +33,7 @@ class UserDashboardTest < ActionDispatch::IntegrationTest
     VCR.use_cassette("apicurious") do
       visit dashboard_path
 
-      assert page.has_content? "Last year: 423"
+      assert page.has_content? "Last year: "
       assert page.has_content? "Longest streak: 21"
       assert page.has_content? "Current streak: 3"
     end
@@ -45,6 +45,18 @@ class UserDashboardTest < ActionDispatch::IntegrationTest
 
       assert page.has_content? "Commits"
       assert page.has_content? "Pushed 2 commits to hectorhuertas/apicurious"
+    end
+  end
+
+  test "user sees dashboard with repositories" do
+    VCR.use_cassette("apicurious") do
+      visit dashboard_path
+
+      assert page.has_content? ".dotfiles"
+      assert page.has_content? "apicurious"
+      assert page.has_content? "binary_search_tree"
+      assert page.has_content? "clarke_coin"
+      assert page.has_content? "complete_me"
     end
   end
 end
