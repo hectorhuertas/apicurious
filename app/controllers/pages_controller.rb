@@ -11,7 +11,4 @@ class PagesController < ApplicationController
     @commit_history = git.commit_history
     @repos = git.repos
   end
-
-  def supertest
-  end
 end
