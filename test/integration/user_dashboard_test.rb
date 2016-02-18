@@ -23,9 +23,19 @@ class UserDashboardTest < ActionDispatch::IntegrationTest
       visit dashboard_path
 
       assert page.has_content? "Hector Huertas"
-      assert page.has_content? "5"
-      assert page.has_content? "4"
-      assert page.has_content? "3"
+      assert page.has_content? "Followers: 5"
+      assert page.has_content? "Starred: 4"
+      assert page.has_content? "Following: 3"
+    end
+  end
+
+  test "user sees dashboard with contributions info" do
+    VCR.use_cassette("apicurious") do
+      visit dashboard_path
+
+      assert page.has_content? "Last year: 419"
+      assert page.has_content? "Longest streak: 21"
+      assert page.has_content? "Current streak: 2"
     end
   end
 end

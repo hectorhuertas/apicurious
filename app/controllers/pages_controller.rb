@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     git = GithubService.new(current_user)
     @user = git.user
     @starred = git.starred
+    @contributions = git.contributions
     # binding.pry
   end
 

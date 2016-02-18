@@ -1,3 +1,4 @@
+require 'open-uri'
 class GithubService
   attr_reader :conn, :user
 
@@ -14,7 +15,21 @@ class GithubService
   end
 
   def starred
-    # binding.pry
     JSON.parse(@conn.get("/users/#{user['login']}/starred").body).count
+  end
+
+  def contributions
+    doc = Nokogiri::HTML(open("https://github.com/hectorhuertas"))
+    total = doc.xpath('//*[@id="contributions-calendar"]/div[3]/span[2]')
+            .text.split.first
+    longest = doc.xpath('//*[@id="contributions-calendar"]/div[4]/span[2]')
+            .text.split.first
+    current = doc.xpath('//*[@id="contributions-calendar"]/div[5]/span[2]')
+            .text.split.first
+    {
+      total: total,
+      longest: longest,
+      current: current
+    }
   end
 end

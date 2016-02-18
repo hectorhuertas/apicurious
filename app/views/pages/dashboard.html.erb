@@ -17,18 +17,32 @@
       </div>
       <div class="row">
         <div class="col-md-4">
-          Starred:<%= @starred%>
+          Starred: <%= @starred%>
         </div>
         <div class="col-md-4">
-          Followers:<%= @user["followers"]%>
+          Followers: <%= @user["followers"]%>
         </div>
         <div class="col-md-4">
-          Following:<%= @user["following"]%>
+          Following: <%= @user["following"]%>
         </div>
       </div>
       <%= link_to "SuperTest", "/supertest" %>
       <%= link_to "Logout", "/logout" %>
 
+    </div>
+    <div class="col-md-3">
+      <div class="row">
+        Contributions
+      </div>
+      <div class="row">
+        Last year: <%= @contributions[:total] %>
+      </div>
+      <div class="row">
+        Longest streak: <%= @contributions[:longest] %>
+      </div>
+      <div class="row">
+        Current streak: <%= @contributions[:current] %>
+      </div>
     </div>
   </div>
 </div>
