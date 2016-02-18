@@ -1,22 +1,30 @@
+hr{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
 .wrapper{
   // background-color: yellow;
-  padding: 1em;
+  padding-top: 1em;
 }
 
 #person {
   // background-color: gainsboro;
-  padding: 1.5em;
   img{
-    margin-bottom: 1em;
+    margin-bottom: 0.7em;
   }
   .stats{
-    h2{color:blue;}
-    p{font-size: 0.6em;}
+    h3{color:blue;}
+    p{font-size: 0.6em;
+    margin-bottom: 0em;}
   }
-  hr{
-    margin-left: -1em;
-    margin-right: -1em;
-    // margin-bottom: 0em;
-    margin-top: 0em;
-  }
+}
+
+#general_data {
+  // padding: 1.5em;
+  // background-color: green;
+}
+
+#repos {
+  // background-color: white;
+  padding-bottom: 1em;
 }

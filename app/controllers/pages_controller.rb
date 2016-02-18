@@ -14,6 +14,10 @@ class PagesController < ApplicationController
     # @commit_history = git.commit_history
     @commit_history = {}
     # @repos = git.repos
-    @repos = {}
+    @repos = [{:name=>".dotfiles", :url=>"https://github.com/hectorhuertas/.dotfiles"},
+              {:name=>"apicurious", :url=>"https://github.com/hectorhuertas/apicurious"},
+              {:name=>"binary_search_tree", :url=>"https://github.com/hectorhuertas/binary_search_tree"},
+              {:name=>"clarke_coin", :url=>"https://github.com/hectorhuertas/clarke_coin"},
+              {:name=>"complete_me", :url=>"https://github.com/hectorhuertas/complete_me"}]
   end
 end

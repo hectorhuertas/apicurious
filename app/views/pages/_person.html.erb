@@ -1,22 +1,26 @@
 <div class="row">
-  <%= image_tag current_user.image_url , class:"img-fluid img-rounded"%>
+  <div class="col-md-12">
+    <%= image_tag current_user.image_url , class:"img-fluid img-rounded"%>
+  </div>
 </div>
 <div class="row">
-  <h2><%= current_user.name %> </h2>
-  <h4 class="text-muted"><%= current_user.username %> </h4>
+  <div class="col-md-12">
+    <h2><%= current_user.name %> </h2>
+    <h4 class="text-muted"><%= current_user.username %> </h4>
+  </div>
 </div>
 <hr>
 <div class="row text-xs-center stats">
   <div class="col-md-4">
-    <h2 class="blue"><%= @starred%></h2>
+    <h3 class="blue"><%= @starred%></h3>
     <p>Starred</p>
   </div>
   <div class="col-md-4">
-    <h2 class="blue"><%= @user["followers"]%></h2>
+    <h3 class="blue"><%= @user["followers"]%></h3>
     <p>Followers</p>
   </div>
   <div class="col-md-4">
-    <h2 class="blue"><%= @user["following"]%></h2>
+    <h3 class="blue"><%= @user["following"]%></h3>
     <p>Following</p>
   </div>
 </div>
