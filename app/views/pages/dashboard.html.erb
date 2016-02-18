@@ -44,5 +44,13 @@
         Current streak: <%= @contributions[:current] %>
       </div>
     </div>
+    <div class="col-md-3">
+      Commits:
+      <% @commit_history.each do |commit| %>
+        <div class="row">
+          Pushed <%= pluralize commit[:total], "commit" %> to <%= commit[:repo] %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
