@@ -48,4 +48,14 @@ class GithubService
       }
     end.take(5)
   end
+
+  def repos
+    repos = JSON.parse(conn.get("/users/hectorhuertas/repos").body, symbolize_names: true)
+    repos.map do |repo|
+      {
+        name: repo[:name],
+        url: repo[:html_url]
+      }
+    end.take(5)
+  end
 end

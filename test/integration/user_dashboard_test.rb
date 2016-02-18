@@ -33,7 +33,7 @@ class UserDashboardTest < ActionDispatch::IntegrationTest
     VCR.use_cassette("apicurious") do
       visit dashboard_path
 
-      assert page.has_content? "Last year: 423"
+      assert page.has_content? "Last year: "
       assert page.has_content? "Longest streak: 21"
       assert page.has_content? "Current streak: 3"
     end
