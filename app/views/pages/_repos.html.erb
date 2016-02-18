@@ -1,0 +1,13 @@
+<div class="row" id="repos">
+  <div class="col-sm-6">
+    Respositories:
+    <hr>
+    <% @repos.each do |repo| %>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= link_to repo[:name], repo[:url] %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

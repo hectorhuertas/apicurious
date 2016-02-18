@@ -1,63 +1,10 @@
-<div class="container text-xs-center">
   <div class="row">
-    <div class="col-md-3" style="background-color:gainsboro">
-      <div class="row">
-
-        <h3>Dashboard</h3>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <%= image_tag current_user.image_url , class:"img-responsive", style:"width:100%"%>
-        </div>
-      </div>
-      <%#= binding.pry %>
-      <br>
-      <div class="row">
-        <h3><%= current_user.name %> </h3>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          Starred: <%= @starred%>
-        </div>
-        <div class="col-md-4">
-          Followers: <%= @user["followers"]%>
-        </div>
-        <div class="col-md-4">
-          Following: <%= @user["following"]%>
-        </div>
-      </div>
-      <%= link_to "SuperTest", "/supertest" %>
-      <%= link_to "Logout", "/logout" %>
-
+    <div class="col-md-3" id="person">
+      <%= render "person" %>
     </div>
-    <div class="col-md-3">
-      <div class="row">
-        Contributions
-      </div>
-      <div class="row">
-        Last year: <%= @contributions[:total] %>
-      </div>
-      <div class="row">
-        Longest streak: <%= @contributions[:longest] %>
-      </div>
-      <div class="row">
-        Current streak: <%= @contributions[:current] %>
-      </div>
-    </div>
-    <div class="col-md-3">
-      Commits:
-      <% @commit_history.each do |commit| %>
-        <div class="row">
-          Pushed <%= pluralize commit[:total], "commit" %> to <%= commit[:repo] %>
-        </div>
-      <% end %>
+    <div class="col-md-9" id="general_data">
+      <%= render "repos" %>
+      <%= render "contributions" %>
+      <%= render "commits" %>
     </div>
   </div>
-  <div class="row">
-    <% @repos.each do |repo| %>
-      <div class="row">
-        <%= link_to repo[:name], repo[:url] %>
-      </div>
-    <% end %>
-  </div>
-</div>

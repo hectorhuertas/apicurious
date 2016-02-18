@@ -6,12 +6,26 @@ class PagesController < ApplicationController
   def dashboard
     git = GithubService.new(current_user)
     @user = git.user
+    # @user = {'followers'=> 5, 'following'=>8}
     @starred = git.starred
+    # @starred = 9
     @contributions = git.contributions
+    # @contributions = {
+    #   total: 429,
+    #   longest: 23,
+    #   current: 7
+    # }
     @commit_history = git.commit_history
+    # @commit_history = [{:total=>3, :repo=>"hectorhuertas/apicurious"},
+    #                    {:total=>2, :repo=>"hectorhuertas/apicurious"},
+    #                    {:total=>2, :repo=>"hectorhuertas/apicurious"},
+    #                    {:total=>2, :repo=>"hectorhuertas/apicurious"},
+    #                    {:total=>3, :repo=>"hectorhuertas/apicurious"}]
     @repos = git.repos
-  end
-
-  def supertest
+    # @repos = [{:name=>".dotfiles", :url=>"https://github.com/hectorhuertas/.dotfiles"},
+    #           {:name=>"apicurious", :url=>"https://github.com/hectorhuertas/apicurious"},
+    #           {:name=>"binary_search_tree", :url=>"https://github.com/hectorhuertas/binary_search_tree"},
+    #           {:name=>"clarke_coin", :url=>"https://github.com/hectorhuertas/clarke_coin"},
+    #           {:name=>"complete_me", :url=>"https://github.com/hectorhuertas/complete_me"}]
   end
 end

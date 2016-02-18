@@ -1,0 +1,38 @@
+hr{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.wrapper{
+  // background-color: yellow;
+  padding-top: 1em;
+}
+
+#person {
+  // background-color: gainsboro;
+  img{
+    margin-bottom: 0.7em;
+  }
+  .stats{
+    h3{color:blue;}
+    p{font-size: 0.6em;
+    margin-bottom: 0em;}
+  }
+}
+
+#general_data {
+  // padding: 1.5em;
+  // background-color: green;
+}
+
+#repos {
+  // background-color: white;
+  padding-bottom: 2em;
+}
+#contributions {
+  // background-color: white;
+  padding-bottom: 2em;
+
+  p{
+    font-size: 0.8em;
+  }
+}
