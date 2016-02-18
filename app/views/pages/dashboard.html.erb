@@ -4,21 +4,8 @@
     </div>
     <div class="col-md-9" id="general_data">
         <%= render "repos" %>
+        <%= render "contributions" %>
       <div class="row">
-        <div class="col-md-6">
-          <div class="row">
-            Contributions
-          </div>
-          <div class="row">
-            Last year: <%= @contributions[:total] %>
-          </div>
-          <div class="row">
-            Longest streak: <%= @contributions[:longest] %>
-          </div>
-          <div class="row">
-            Current streak: <%= @contributions[:current] %>
-          </div>
-        </div>
         <div class="col-md-6">
           Commits:
           <% @commit_history.each do |commit| %>

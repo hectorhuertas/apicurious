@@ -10,7 +10,11 @@ class PagesController < ApplicationController
     # @starred = git.starred
     @starred = 9
     # @contributions = git.contributions
-    @contributions = {}
+    @contributions = {
+      total: 429,
+      longest: 23,
+      current: 7
+    }
     # @commit_history = git.commit_history
     @commit_history = {}
     # @repos = git.repos
