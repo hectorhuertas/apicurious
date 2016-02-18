@@ -48,8 +48,12 @@ group :development, :test do
   gem 'byebug'
   gem 'launchy'
   gem 'database_cleaner'
+end
+
+group :test do
   gem 'vcr'
   gem 'webmock'
+
 end
 
 group :development do

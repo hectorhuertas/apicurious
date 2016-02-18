@@ -4,6 +4,10 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    git = GithubService.new(current_user)
+    @user = git.user
+    @starred = git.starred
+    # binding.pry
   end
 
   def supertest
