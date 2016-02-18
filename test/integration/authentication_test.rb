@@ -9,8 +9,19 @@ class AuthenticationTest < ActionDispatch::IntegrationTest
 
     assert_equal dashboard_path, current_path
     assert_equal User.count, 1
-    # user = User.last
-    # response = GithubService.new(user).user
+
+
+
+
+
+    user = User.last
+    VCR.use_cassette("gittester") do
+      # response = Faraday.get('http://www.iana.org/domains/reserved')
+      response = GithubService.new(user).user
+      # binding.pry
+      # response = Net::HTTP.get_response(URI('http://www.iana.org/domains/reserved'))
+    end
+    # assert_match /Example domains/, response.body
     # binding.pry
     # needs mocking github login
   end

@@ -10,7 +10,6 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   # include FactoryGirl::Syntax::Methods
-
 end
 
 class ActionDispatch::IntegrationTest
@@ -34,15 +33,34 @@ class Minitest::Spec
   end
 end
 
-OmniAuth.config.test_mode = true
-OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+hector_oauth_hash = {
   "provider"=>"github",
   "uid"=>"13817763",
   "info"=>
-    {"nickname"=>"hectorhuertas",
-     "email"=>nil,
-     "name"=>"Hector Huertas",
-     "image"=>"https://avatars.githubusercontent.com/u/13817763?v=3",
-     "urls"=>{"GitHub"=>"https://github.com/hectorhuertas", "Blog"=>nil}},
-  "credentials"=>{"token"=>ENV['GITHUB_TOKEN'], "expires"=>false}
-  })
+  {"nickname"=>"hectorhuertas",
+    "email"=>'hector@github.com',
+    "name"=>"Hector Huertas",
+    "image"=>"https://avatars.githubusercontent.com/u/13817763?v=3",
+    "urls"=>{"GitHub"=>"https://github.com/hectorhuertas", "Blog"=>nil}},
+    "credentials"=>{"token"=>ENV['GITHUB_TOKEN'], "expires"=>false}
+  }
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(hector_oauth_hash)
+
+
+VCR.configure do |config|
+  config.cassette_library_dir = "test/cassettes"
+  config.hook_into :webmock
+end
+
+def hector
+  User.create(
+  provider: 'github',
+  uid: '13817763',
+  username: 'hectorhuertas',
+  email: 'hector@github.com',
+  name: 'Hector Huertas',
+  image_url: 'https://avatars.githubusercontent.com/u/13817763?v=3',
+  token: ENV['GITHUB_TOKEN']
+  )
+end
