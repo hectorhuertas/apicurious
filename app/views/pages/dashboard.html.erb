@@ -3,17 +3,8 @@
       <%= render "person" %>
     </div>
     <div class="col-md-9" id="general_data">
-        <%= render "repos" %>
-        <%= render "contributions" %>
-      <div class="row">
-        <div class="col-md-6">
-          Commits:
-          <% @commit_history.each do |commit| %>
-          <div class="row">
-            Pushed <%= pluralize commit[:total], "commit" %> to <%= commit[:repo] %>
-          </div>
-          <% end %>
-        </div>
-      </div>
+      <%= render "repos" %>
+      <%= render "contributions" %>
+      <%= render "commits" %>
     </div>
   </div>

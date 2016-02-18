@@ -22,10 +22,12 @@ class UserDashboardTest < ActionDispatch::IntegrationTest
     VCR.use_cassette("apicurious") do
       visit dashboard_path
 
-      assert page.has_content? "Hector Huertas"
-      assert page.has_content? "Followers: 5"
-      assert page.has_content? "Starred: 4"
-      assert page.has_content? "Following: 3"
+      within('#person') do
+        assert page.has_content? "Hector Huertas"
+        assert page.has_content? "5"
+        assert page.has_content? "4"
+        assert page.has_content? "3"
+      end
     end
   end
 
