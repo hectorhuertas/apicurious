@@ -114,5 +114,17 @@ class GithubService
         url: repo[:html_url]
       }
     end.take(5)
+
+    repos.map do |repo|
+      OpenStruct.new(repo)
+      # class Repo < OpenStruct
+      # Repo.new(repo)
+        # :name
+      # decorated_repo = RepoDecorator.new(repo)
+        # :graph
+        # decorated_repo.graph
+        # decorated_repo.name
+      # repo.name
+    end
   end
 end
