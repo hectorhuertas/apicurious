@@ -16,3 +16,12 @@
 //= require tether
 //= require bootstrap
 //= require_tree .
+
+
+$(document).ready(function(){
+  console.log('bobby');
+  $('.repo_commit_list').on('click', function(){
+    console.log(this);
+    $(this).parent().find('.commit_list').toggleClass('hidden')
+  })
+});

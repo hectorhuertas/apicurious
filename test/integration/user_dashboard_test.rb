@@ -37,7 +37,7 @@ class UserDashboardTest < ActionDispatch::IntegrationTest
 
       assert page.has_content? "Last year: "
       assert page.has_content? "Longest streak: 21"
-      assert page.has_content? "Current streak: 3"
+      assert page.has_content? "Current streak: 4"
     end
   end
 
@@ -46,7 +46,7 @@ class UserDashboardTest < ActionDispatch::IntegrationTest
       visit dashboard_path
 
       assert page.has_content? "Commits"
-      assert page.has_content? "Pushed 2 commits to hectorhuertas/apicurious"
+      assert page.has_content? "Pushed 30 commits to hectorhuertas/apicurious"
     end
   end
 
