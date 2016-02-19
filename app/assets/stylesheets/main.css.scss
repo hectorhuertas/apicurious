@@ -27,6 +27,16 @@ hr{
 #repos {
   // background-color: white;
   padding-bottom: 2em;
+  .commit{
+    // color:red;
+    font-size: 0.7em;
+  }
+  .commit_list{
+    // display: none;
+  }
+  .repo_commit_list{
+    color:green;
+  }
 }
 #contributions {
   // background-color: white;
@@ -35,4 +45,7 @@ hr{
   p{
     font-size: 0.8em;
   }
+}
+.hidden{
+  display: none;
 }
