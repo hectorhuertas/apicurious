@@ -59,20 +59,29 @@ class GithubService
     repos = JSON.parse(conn.get("/users/#{user['login']}/repos?sort=pushed").body, symbolize_names: true)
 
     filtered = repos.select do |repo|
-      Date.parse(repo[:pushed_at]) > (Date.today - filter[period])
+      Date.parse(repo[:pushed_at]) > limit_date(period)
     end
 
     names = filtered.map{|repo| repo[:name]}
 
     names.map do |repo|
-      repo_commits(repo)
+      repo_commits(repo,period)
     end
   end
 
-  def repo_commits(repo)
-    ## Use pagination to get all of them for real
+  def limit_date(period)
+    Date.today - filter[period]
+  end
+
+  def repo_commits(repo, period)
+    # Right now the filter is meaningless because im only taking the first 30
+    # answers. To make it have sense I have to use &per_page=100 and/or pagination
+    # period = :day
+    # limit = limit_date(period).to_s
+    # raw_commits2 = JSON.parse(conn.get("/repos/#{user['login']}/#{repo}/commits?since=#{limit}").body, symbolize_names: true)
     raw_commits = JSON.parse(conn.get("/repos/#{user['login']}/#{repo}/commits").body, symbolize_names: true)
     # commits2 = JSON.parse(conn.get("/repos/#{user['login']}/#{repo}/commits?since=2013-02-18").body, symbolize_names: true)
+    # binding.pry
     commits = raw_commits.map do |commit|
       {
         short_sha: commit[:sha].slice(0,7),
@@ -91,6 +100,7 @@ class GithubService
 
   def filter
     {
+      day: 1,
       week: 7,
       month: 30
     }
